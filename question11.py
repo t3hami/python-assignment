@@ -4,6 +4,7 @@ while loop_variable:
     passwords = input('Enter coma separated passwords:\n')
     passwords = passwords.split(', ')
     validate_password = [False, False, False, False, False]
+    accepted_password = ''
     for password in passwords:
         for p in password:
             if ord(p) >=65 and ord(p) <= 90:
@@ -16,9 +17,10 @@ while loop_variable:
             validate_password[3] = True
         if validate_password[0] and validate_password[1] and validate_password[2] and validate_password[3]:
             validate_password[4] = True
+            accepted_password = password
             break
     if validate_password[4]:
-        print('Accepted password =', password)
+        print('Accepted password =', accepted_password)
         loop_variable = False
 
     else:
